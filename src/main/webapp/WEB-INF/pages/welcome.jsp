@@ -55,8 +55,14 @@ Welcome, to the page
 <%--</c:if>--%>
 
 <form action="/save" method="post">
-    <input type="text" name="username" placeholder="input name">
+    <input type="text" name="firstname" placeholder="input firstname" >
+    <input type = "text" name="lastname" placeholder="input lastname">
     <input type="submit" value="save">
+    <br>
+    <c:forEach items="${users}" var="user">
+        <c:out value="${user}"/><br>
+    </c:forEach>
+
 </form>
 </body>
 </html>

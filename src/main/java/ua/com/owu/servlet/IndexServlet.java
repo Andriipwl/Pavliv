@@ -18,10 +18,13 @@ public class IndexServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        String username = request.getParameter("username");
-        System.out.println(username);
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        System.out.println(firstname+"  "+lastname);
         DbConnect dbConnect = new DbConnect();
-        dbConnect.insert(username);
+        dbConnect.insert(firstname,lastname);
+        dbConnect = new DbConnect();
+        request.setAttribute("users", dbConnect.select());
         request.getRequestDispatcher("/WEB-INF/pages/welcome.jsp").forward(request, response);
 
     }
